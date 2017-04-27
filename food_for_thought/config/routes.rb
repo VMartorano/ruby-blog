@@ -13,5 +13,8 @@ Rails.application.routes.draw do
   # put "/users/:id" => "users#update"
   # delete "/users/:id" => "users#detroy"
 
+resources :posts
+
+resources :comments
 
 end

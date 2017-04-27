@@ -3,6 +3,15 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    User.create(fname: params[:user][:fname], lname: params[:user][:lname], username: params[:user][:username], password: params[:user][:password]  )
+    redirect_to home_path
+  end
+
 # shows the user information
   def show
     @user = User.find(params[:id])

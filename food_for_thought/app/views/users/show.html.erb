@@ -1,5 +1,8 @@
-this is a user
+<strong>First Name</strong>: <%= @user.fname %>
 
-<strong>Fname</strong>: <%= @user.fname %>
-<strong>Lname</strong>: <%= @user.lname %>
+<strong>Last Name</strong>: <%= @user.lname %>
+<strong>Username</strong>: <%= @user.username %>
+
+
 <%=link_to("Delete Profile", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"})%>
+<!-- <%=link_to("Edit profile"), user -->
