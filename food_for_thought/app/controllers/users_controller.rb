@@ -7,9 +7,43 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.fname = params[:user][:fname]
+    @user.lname = params[:user][:lname]
+    @user.username = params[:user][:username]
+    @user.password = params[:user][:password]
+
+
+    if @user.save
+      flash[:notice] = "Changes saved!"
+      redirect_to user_path(@user)
+    else
+      flash[:alert] = "Unable to save changes"
+      redirect_to edit_user_path(@user)
+    end
+  end
+
   def create
-    User.create(fname: params[:user][:fname], lname: params[:user][:lname], username: params[:user][:username], password: params[:user][:password]  )
-    redirect_to home_path
+
+    @user = User.new(
+      fname: params[:user][:fname],
+      lname: params[:user][:lname],
+      username: params[:user][:username],
+      password: params[:user][:password]
+    )
+
+    if @user.save
+      flash[:notice] = "Profile created!"
+      redirect_to user_path(@user)
+    else
+      flash[:alert] = "Unable to create profile"
+      redirect_to new_user_path
+    end
   end
 
 # shows the user information
