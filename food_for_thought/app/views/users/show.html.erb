@@ -1,7 +1,9 @@
 <strong>First Name</strong>: <%= @user.fname %>
-
+<br>
 <strong>Last Name</strong>: <%= @user.lname %>
+<br>
 <strong>Username</strong>: <%= @user.username %>
+<br>
 
 
 <%=link_to("Delete Profile", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"})%>

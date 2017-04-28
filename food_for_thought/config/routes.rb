@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get "/" => "home#index", as: "home"
 
-  
+
   resources :users
 
   # get "/users" => "users#index"
@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   # put "/users/:id" => "users#update"
   # delete "/users/:id" => "users#detroy"
 
-resources :posts
-
-resources :comments
+resources :posts do
+  resources :comments
+end
 
 resources :sessions
 

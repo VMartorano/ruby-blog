@@ -13,8 +13,8 @@
     <nav>
       <a href="/">Home</a>
       <% if session[:user_id] %>
-        <a href="/profile">Profile</a>
-      
+        <%= link_to("Profile", user_path(session[:user_id])) %>
+        <%= link_to("Edit Profile", edit_user_path(session[:user_id])) %>
         <%= link_to("Sign Out", session_path(session[:user_id]), method: :delete) %>
       <% else %>
         <a href="/users/new">Sign Up</a>
