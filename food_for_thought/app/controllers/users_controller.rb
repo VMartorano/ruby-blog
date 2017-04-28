@@ -59,6 +59,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.destroy
       flash[:notice] = "Profile deleted successfully."
+      session[:user_id] = nil
     else
       flash[:alert] = "There was a problem deleting the profile"
     end

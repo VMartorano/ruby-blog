@@ -1,0 +1,21 @@
+<a href="/posts/new">Post</a>
+<br>
+
+<% @posts.each do |post| %>
+  <!-- displays post title -->
+
+
+    <br>
+  <strong><%= post.title %></strong>
+  <%= post.created_at.to_date %>
+  <br>
+  <!-- displays post content -->
+  <%= post.content %>
+  <% if session[:user_id] == post.user_id%>
+    <%= link_to("Edit", edit_post_path(post)) %>
+  <% end %>
+
+
+  <br>
+  <br>
+<% end %>

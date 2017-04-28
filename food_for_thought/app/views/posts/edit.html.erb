@@ -1,0 +1,12 @@
+EDIT POST
+<%= form_for @post do |form| %>
+  <%= form.label :title, ("Title: ")%>
+  <%= form.text_field :title, placeholder: "Title" %>
+  <br>
+  <%= form.text_field :content, placeholder: "Feed the Feed" %>
+  <br>
+  <br>
+  <%= form.submit ("Confirm") %>
+  <%=link_to("Delete Post", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete this post?"})%>
+
+<% end %>

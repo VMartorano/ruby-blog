@@ -11,5 +11,6 @@
   <%= form.label :password, ("Password: ") %>
   <%= form.password_field :password %>
   <br>
-  <%= form.submit ("Confirm Changes") %>
+  <%= form.submit ("Confirm") %>
+  <%=link_to("Delete Profile", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"})%>
 <% end %>
