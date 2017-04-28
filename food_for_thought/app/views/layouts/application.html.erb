@@ -12,9 +12,16 @@
   <body>
     <nav>
       <a href="/">Home</a>
-      <a href="/users/new">SignUp</a>
+      <% if session[:user_id] %>
+        <a href="/profile">Profile</a>
+      
+        <%= link_to("Sign Out", session_path(session[:user_id]), method: :delete) %>
+      <% else %>
+        <a href="/users/new">Sign Up</a>
+        <a href="/sessions/new">Sign In</a>
+      <% end %>
     </nav>
-    
+
     <% if flash[:notice] %>
       <div class="notice">
         <%= flash[:notice] %>

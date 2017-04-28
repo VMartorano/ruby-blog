@@ -30,12 +30,14 @@ class UsersController < ApplicationController
 
   def create
 
-    @user = User.new(
+    @user = User.create(
       fname: params[:user][:fname],
       lname: params[:user][:lname],
       username: params[:user][:username],
       password: params[:user][:password]
     )
+
+    session[:user_id] = @user.id
 
     if @user.save
       flash[:notice] = "Profile created!"
@@ -46,12 +48,12 @@ class UsersController < ApplicationController
     end
   end
 
-# shows the user information
+  # shows the user information
   def show
     @user = User.find(params[:id])
   end
 
-# deletes the user
+  # deletes the user
   def destroy
 
     @user = User.find(params[:id])
