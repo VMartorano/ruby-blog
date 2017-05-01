@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+.background {
+  background-image: url(food-wallpaper.jpg);
+  background-size: cover;
+  background-color: white;
+  padding-bottom: 40%;
+}
+
+.nav {
+  background-color: white;
+  padding: 15px;
+  position: relative;
+  padding-right: 70%;
+  margin-bottom: 2%;
+}
+
+.nav-link {
+  color: #871B1B;
+  padding: 15px;
+  border-left: .5px solid black;
+  text-decoration: none;
+  border-top: .5px solid black;
+  border-radius: 4px;
+}

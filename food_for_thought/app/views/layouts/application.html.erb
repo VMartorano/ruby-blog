@@ -10,30 +10,34 @@
   </head>
 
   <body>
-    <nav>
-      <a href="/">Home</a>
-      <% if session[:user_id] %>
-        <a href="/posts">Feed</a>
-        <%= link_to("Profile", user_path(session[:user_id])) %>
-        <%= link_to("Edit Profile", edit_user_path(session[:user_id])) %>
-        <%= link_to("Sign Out", session_path(session[:user_id]), method: :delete) %>
-      <% else %>
-        <a href="/users/new">Sign Up</a>
-        <a href="/sessions/new">Sign In</a>
+    <div class="background">
+      <div class="nav">
+        <nav>
+          <a href="/" class="nav-link">Home</a>
+          <% if session[:user_id] %>
+            <a href="/posts" class="nav-link">Feed</a>
+            <%= link_to("Profile", user_path(session[:user_id], :class => "nav-link")) %>
+            <%= link_to("Edit Profile", edit_user_path(session[:user_id], :class => "nav-link")) %>
+            <%= link_to("Sign Out", session_path(session[:user_id]), method: :delete, :class => "nav-link") %>
+          <% else %>
+            <a href="/users/new" class="nav-link">Sign Up</a>
+            <a href="/sessions/new" class="nav-link">Sign In</a>
+          <% end %>
+        </nav>
+      </div>
+
+      <% if flash[:notice] %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
       <% end %>
-    </nav>
+      <% if flash[:alert] %>
+        <div class="alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
 
-    <% if flash[:notice] %>
-      <div class="notice">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="alert">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
-
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>
