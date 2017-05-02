@@ -1,14 +1,17 @@
-HELLOOOOOOOOO
-<br>
-<ul>
+<center>
+  <div class="container">
+    <div class="inner">
+      <br>
+      <ul>
+        <% @users.each do |u| %>
+          <li>
+            <strong>Fname</strong>: <%= u.fname %>
+            <strong>Lname</strong>: <%= u.lname %>
+            <%=link_to(u.fname + " " + u.lname + " Link to User", user_path(u))%>
 
-<% @users.each do |u| %>
-  <li>
-    <strong>Fname</strong>: <%= u.fname %>
-    <strong>Lname</strong>: <%= u.lname %>
-    <%=link_to(u.fname + " " + u.lname + " Link to User", user_path(u))%>
-
-  </li>
-<% end %>
-
-</ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</center>

@@ -1,0 +1,8 @@
+
+<%= form_for @comment do |form| %>
+  <br>
+  <%= form.text_area :content, placeholder: "Write a comment..." %>
+  <br>
+  <%= form.submit ("Post") %>
+
+<% end %>

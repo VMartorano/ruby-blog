@@ -1,7 +1,10 @@
-<%= form_tag("/sessions", method: "post") do %>
-  <%= label_tag :username, "Username:" %>
-  <%= text_field_tag :username %>
-  <%= label_tag :password, "Password:" %>
-  <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
-<% end %>
+<center>
+  <div class="container">
+    <div class="inner">
+      <%= form_tag("/sessions", method: "post") do %>
+        <%= label_tag :username, "Username:" %>
+        <%= text_field_tag :username %>
+        <%= label_tag :password, "Password:" %>
+        <%= password_field_tag :password %>
+        <%= submit_tag "Submit" %>
+      <% end %>

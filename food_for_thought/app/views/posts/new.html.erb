@@ -1,10 +1,15 @@
+<center>
+  <div class="container">
+    <div class="inner">
+      <%= form_for @post do |form| %>
+        <%= form.text_field :title, placeholder: "Title" %>
+        <br>
+        <br>
+        <%= form.text_area :content, placeholder: "Feed the Feed" %>
+        <br>
+        <%= form.submit ("Post") %>
 
-<%= form_for @post do |form| %>
-  <%= form.text_field :title, placeholder: "Title" %>
-  <br>
-  <br>
-  <%= form.text_area :content, placeholder: "Feed the Feed" %>
-  <br>
-  <%= form.submit ("Post") %>
-
-<% end %>
+      <% end %>
+    </div>
+  </div>
+</center>

@@ -1,23 +1,26 @@
-<a href="/posts/new">Post</a>
-<br>
-
-<% @posts.each do |post| %>
-  <!-- displays post title -->
-
-
-    <br>
-  <strong><%= link_to(post.title, post_path(post)) %></strong>
-  <%= post.created_at.to_date %>
-  <br>
-  <!-- displays post content -->
-<%= post.content %>
-  <% if session[:user_id] == post.user_id%>
-    <%= link_to("Edit", edit_post_path(post)) %>
-    <%= link_to("Delete", post_path(post), method: :delete, data: {confirm: "Are you sure you want to delete this post?"})%>
-  <% end %>
-  <a href="/comments/new"></a>
-
-
-  <br>
-  <br>
-<% end %>
+<center>
+  <div class="container">
+    <div class="inner">
+      <a href="/posts/new">Post</a>
+      <br>
+      <% @posts.each do |post| %>
+        <!-- displays post title -->
+        <br>
+          <div class="box">
+            <strong><%= link_to(post.title, post_path(post)) %></strong>
+            <%= post.created_at.to_date %>
+            <br>
+            <!-- displays post content -->
+            <%= post.content %>
+              <% if session[:user_id] == post.user_id%>
+                <%= link_to("Edit", edit_post_path(post)) %>
+                <%= link_to("Delete", post_path(post), method: :delete, data: {confirm: "Are you sure you want to delete this post?"})%>
+              <% end %>
+        <a href="/comments/new">Comment</a>
+        <br>
+        <br>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</center>

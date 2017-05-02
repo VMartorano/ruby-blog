@@ -1,16 +1,22 @@
-<%= form_for @user do |form| %>
-  <%= form.label :fname, ("First Name: ")%>
-  <%= form.text_field :fname %>
-  <br>
-  <%= form.label :lname, ("Last Name: ") %>
-  <%= form.text_field :lname %>
-  <br>
-  <%= form.label :username, ("Username: ") %>
-  <%= form.text_field :username %>
-  <br>
-  <%= form.label :password, ("Password: ") %>
-  <%= form.password_field :password %>
-  <br>
-  <%= form.submit ("Confirm") %>
-  <%=link_to("Delete Profile", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"})%>
-<% end %>
+<center>
+  <div class="container">
+    <div class="inner">
+      <%= form_for @user do |form| %>
+        <%= form.label :fname, ("First Name: ")%>
+        <%= form.text_field :fname %>
+        <br>
+        <%= form.label :lname, ("Last Name: ") %>
+        <%= form.text_field :lname %>
+        <br>
+        <%= form.label :username, ("Username: ") %>
+        <%= form.text_field :username %>
+        <br>
+        <%= form.label :password, ("Password: ") %>
+        <%= form.password_field :password %>
+        <br>
+        <%= form.submit ("Confirm") %>
+        <%=link_to("Delete Profile", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"})%>
+      <% end %>
+    </div>
+  </div>
+</center>

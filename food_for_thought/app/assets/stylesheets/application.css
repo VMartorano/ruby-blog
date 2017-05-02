@@ -17,22 +17,42 @@
   background-image: url(food-wallpaper.jpg);
   background-size: cover;
   background-color: white;
-  padding-bottom: 40%;
+  padding-bottom: 58%;
+  color: #0E1C36;
+  text-decoration: none;
+  font-family: "Calibri";
+  margin-top: -4%;
+  /*background-blend-mode: color-dodge;*/
+}
+
+.heading {
+  font-family: "Marck Script", cursive;
+  font-size: 500%;
+  color: #AFCBFF;
+  text-shadow: 2px 2px #0E1C36;
+  margin-bottom: 1%;
+  margin-left: 2%;
 }
 
 .nav {
   background-color: white;
   padding: 15px;
   position: relative;
-  padding-right: 70%;
+  padding-right: 64%;
   margin-bottom: 2%;
+  z-index: 5;
+  opacity: .8;
 }
 
-.nav-link {
+a {
   color: #871B1B;
   padding: 15px;
-  border-left: .5px solid black;
   text-decoration: none;
-  border-top: .5px solid black;
   border-radius: 4px;
+}
+
+.nav a:hover {
+  background-color: #0E1C36;
+  color: white;
+
 }

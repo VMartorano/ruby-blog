@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Marck+Script" rel="stylesheet">
     <title>Food For Thought</title>
     <link rel="icon" href="http://downloads.andyroid.net/website/v2//wp-content/uploads/2015/07/Slice-Pizza-icon.png">
     <%= csrf_meta_tags %>
@@ -11,6 +12,7 @@
 
   <body>
     <div class="background">
+      <h1 class="heading">Food for Thought</h1>
       <div class="nav">
         <nav>
           <a href="/" class="nav-link">Home</a>
@@ -24,7 +26,7 @@
             <a href="/sessions/new" class="nav-link">Sign In</a>
           <% end %>
         </nav>
-      </div>
+  </div>
 
       <% if flash[:notice] %>
         <div class="notice">
