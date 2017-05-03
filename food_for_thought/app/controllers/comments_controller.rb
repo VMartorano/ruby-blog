@@ -1,61 +1,66 @@
 class CommentsController < ApplicationController
-  def index
-    @comments = Comment.all
-  end
-
   def new
+    @post = Post.find(params[:post_id])
     @comment = Comment.new
   end
 
   def create
-    @comment = Comment.create(
-      user_id: session[:user_id],
-      post_id: session[:post_id]
-      content: params[:comment][:content]
-    )
+    @comment = Comment.new(comment_params)
+    @comment.post_id = params[:post_id]
+    @comment.user_id = session[:user_id]
 
     if @comment.save
-      flash[:notice] = "Posted!"
-      redirect_to show_post_path
+      flash[:notice] = "Your comment has been made."
+      redirect_to post_path(params[:post_id])
     else
-      flash[:alert] = "Unable to post"
-      redirect_to new_comment_path
+      flash[:alert] = "There was a problem with your comment, please try again."
+      redirect_to new_post_comment
     end
   end
 
+
+    def show
+      @comment = Comment.find(params[:id])
+      @post = Post.find(params[:post_id])
+    end
+
   def edit
     @comment = Comment.find(params[:id])
+    @post = Post.find(params[:post_id])
+    @user = @comment.user_id
+
+
   end
 
   def update
     @comment = Comment.find(params[:id])
-    @comment.content = params[:comment][:content]
-
-    if @comment.save
-      flash[:notice] = "Changes saved!"
-      redirect_to show_post_path(@comment)
+    if @comment.update(comment_params)
+      flash[:notice] = "Your comment has been updated"
+      redirect_to post_comment_path
     else
-      flash[:alert] = "Unable to save changes"
-      redirect_to edit_comment_path(@comment)
+      flash[:alert] = "There was a problem updating your comment."
+      redirect_to edit_post_comment_path(@comment)
     end
+
   end
 
 
-  def show
-    @comment = Comment.find(params[:id])
-  end
-
-    def destroy
-
+  def destroy
     @comment = Comment.find(params[:id])
     if @comment.destroy
-      flash[:notice] = "Comment deleted successfully."
-      session[:comment_id] = nil
-      redirect_to posts_path
+      flash[:notice] = "Your comment has been deleted."
+      redirect_to post_path(params[:post_id])
     else
-      flash[:alert] = "There was a problem deleting the comment"
-      redirect_to edit_comment_path
+      flash[:alert] = "Your comment could not be deleted."
+      redirect_to edit_post_comment_path(@comment)
     end
-
   end
+
+  private
+
+
+  def comment_params
+    params.require(:comment).permit(:content)
+  end
+
 end

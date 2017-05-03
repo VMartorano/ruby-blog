@@ -1,10 +1,16 @@
-EDIT comment
-<%= form_for @comment do |form| %>
-  <br>
-  <%= form.text_field :content, placeholder: "Write a comment..." %>
-  <br>
-  <br>
-  <%= form.submit ("Confirm") %>
-  <%=link_to("Delete comment", comment_path(@comment), method: :delete, data: {confirm: "Are you sure you want to delete this comment?"})%>
 
-<% end %>
+<center>
+  <div class="container">
+    <div class="inner">
+      <%= form_for [@post, @comment] do |form| %>
+        <br>
+        <%= form.text_field :content, placeholder: "Write a comment..." %>
+        <br>
+        <br>
+        <%= form.submit ("Confirm") %>
+        <%=link_to("Delete comment", post_comment_path(@post, @comment), method: :delete, data: {confirm: "Are you sure you want to delete this comment?"})%>
+
+      <% end %>
+    </div>
+  </div>
+</center>

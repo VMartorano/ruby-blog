@@ -1,21 +1,20 @@
 
-
-<% @posts.each do |post| %>
-  <!-- displays post title -->
-
-
-    <br>
-  <strong><%= link_to(post.title, post_path(post)) %></strong>
-  <%= post.created_at.to_date %>
-  <br>
-  <!-- displays post content -->
-<%= post.content %>
-  <% if session[:user_id] == post.user_id%>
-    <%= link_to("Edit", edit_post_path(post)) %>
-    <%= link_to("Delete", post_path(post), method: :delete, data: {confirm: "Are you sure you want to delete this post?"})%>
-  <% end %>
+<center>
+  <div class="container">
+    <div class="inner">
+      <% @comments.each do |comment| %>
 
 
-  <br>
-  <br>
-<% end %>
+      <%= comment.content %>
+        <% if session[:user_id] == post.user_id%>
+          <%= link_to("Edit", edit_post_comment_path(post)) %>
+          <%= link_to("Delete", post_comment_path(comment), method: :delete, data: {confirm: "Are you sure you want to delete this comment?"})%>
+        <% end %>
+
+
+        <br>
+        <br>
+      <% end %>
+    </div>
+  </div>
+</center>
